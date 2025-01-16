@@ -6,29 +6,32 @@ export default function Header() {
 
     return (
         <header className='header'>
-            <Link to="/"><img src={Logo} alt="Logo de SportSee" className="header-logo"/></Link>
+            <div className="company">
+                <Link to="/"><img src={Logo} alt="Logo de SportSee" className="header-logo" /></Link>
+                <h1>SportSee</h1>
+            </div>
             <nav className='navbar'>
                 <NavLink
                     to="/"
-                    className={({isActive}) => (isActive ? "nav-link active" : "nav-link")}
+                    className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
                 >
                     Accueil
                 </NavLink>
                 <NavLink
                     to="/profile"
-                    className={({isActive}) => (isActive ? "nav-link active" : "nav-link")}
+                    className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
                 >
                     Profil
                 </NavLink>
                 <NavLink
                     to="/settings"
-                    className={({isActive}) => (isActive ? "nav-link active" : "nav-link")}
+                    className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
                 >
                     Réglage
                 </NavLink>
                 <NavLink
                     to="/community"
-                    className={({isActive}) => (isActive ? "nav-link active" : "nav-link")}
+                    className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
                 >
                     Communauté
                 </NavLink>

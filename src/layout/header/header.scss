@@ -10,6 +10,18 @@
     z-index: 2;
 }
 
+.company {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 2rem;
+}
+
+
+.company h1 {
+    color: #E60000;
+}
+
 .header-logo {
     display: flex;
     justify-content: center;
