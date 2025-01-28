@@ -19,3 +19,13 @@ export function getModelActivity(data) {
         }))
     }
 }
+
+export function getModelAverage(data) {
+    return {
+        userId: data.userId,
+        sessions: data.sessions.map((session) => ({
+            day: session.day,
+            sessionLength: session.sessionLength
+        }))
+    }
+}
