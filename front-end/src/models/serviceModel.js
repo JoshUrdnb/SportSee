@@ -8,3 +8,14 @@ export function getModelUser(data) {
         keyData: data.keyData,
     }
 }
+
+export function getModelActivity(data) {
+    return {
+        userId: data.userId,
+        sessions: data.sessions.map((session) => ({
+            day: session.day,
+            kilogram: session.kilogram,
+            calories: session.calories
+        }))
+    }
+}
