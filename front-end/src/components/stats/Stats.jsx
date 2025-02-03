@@ -1,7 +1,7 @@
 import './stats.scss'
 import { useEffect, useState } from "react"
-// import { fetchUserData } from "../../api/userService.js"
 import { fetchUserData } from "../../api/userMockService.js"
+// import { fetchUserData } from "../../api/userApiService.js"
 
 const Stats = () => {
     const [userData, setUserData] = useState(null)

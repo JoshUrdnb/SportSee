@@ -29,3 +29,14 @@ export function getModelAverage(data) {
         }))
     }
 }
+
+export function getModelPerformance(data) {
+    return {
+        userId: data.userId,
+        kind: data.kind,
+        data: data.data.map((item) => ({
+            value: item.value,
+            kind: item.kind
+        }))
+    }
+}

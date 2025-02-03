@@ -1,6 +1,7 @@
 import './activity.scss'
 import { useEffect, useState } from "react"
-import { fetchUserActivity } from '../../api/userActivityService'
+import { fetchUserActivity } from '../../api/userMockService'
+// import { fetchUserActivity } from "../../api/userApiService.js"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 const Activity = () => {

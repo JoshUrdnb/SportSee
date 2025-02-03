@@ -1,6 +1,7 @@
 import './average.scss'
 import { useEffect, useState } from "react"
-import { fetchAverageData } from '../../api/userAverageService'
+import { fetchAverageData } from '../../api/userMockService'
+// import { fetchAverageData } from "../../api/userApiService.js"
 
 const Average = () => {
     const [userData, setUserData] = useState(null)
