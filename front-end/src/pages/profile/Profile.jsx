@@ -7,10 +7,18 @@ import Performance from '../../components/performance/Performance'
 export default function Profile() {
     return (
         <div className='profile'>
-            <Stats />
-            <Activity />
-            <Average />
-            <Performance />
+                <div className='profile-main'>
+                    <div className='activity'>
+                        <Activity />
+                    </div>
+                    <div className='details'>
+                        <Average />
+                        <Performance />
+                    </div>
+                </div>
+                <div className='profile-sidebar'>
+                    <Stats />
+                </div>
         </div>
     )
 }

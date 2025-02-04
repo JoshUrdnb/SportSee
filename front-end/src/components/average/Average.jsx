@@ -2,6 +2,7 @@ import './average.scss'
 import { useEffect, useState } from "react"
 import { fetchAverageData } from '../../api/userMockService'
 // import { fetchAverageData } from "../../api/userApiService.js"
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
 const Average = () => {
     const [userData, setUserData] = useState(null)
@@ -22,24 +23,25 @@ const Average = () => {
         getUserAverageData()
     }, [])
 
-    if (error) {
-        return <div>{error}</div>
-    }
+    if (error) return <div>{error}</div>
+    if (!userData) return <div>Chargement...</div>
 
-    if (!userData) {
-        return <div>Chargement...</div>
-    }
+    const daysMapping = ["L", "M", "M", "J", "V", "S", "D"]
+    const formattedData = userData.sessions.map((session, index) => ({
+        day: daysMapping[index],
+        sessionLength: session.sessionLength
+    }))
 
     return (
         <section className='average-container'>
-            <h1>Durée moyennes des sessions</h1>
-            <ul>
-                {userData.sessions.map((session) => (
-                    <li key={session.day}>
-                        Jour {session.day} : {session.sessionLength} minutes
-                    </li>
-                ))}
-            </ul>
+            <h1>Durée moyenne des sessions</h1>
+            <ResponsiveContainer width="100%" height={250}>
+                <LineChart data={formattedData}>
+                    <XAxis dataKey="day" tick={{ fill: "rgba(255, 255, 255, 0.7)" }} />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="sessionLength" stroke="#FFF" strokeWidth={2} dot={{ r: 4 }} />
+                </LineChart>
+            </ResponsiveContainer>
         </section>
     )
 }

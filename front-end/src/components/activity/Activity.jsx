@@ -35,19 +35,21 @@ const Activity = () => {
         <section className='activity-container'>
             <h2>Activité quotidienne</h2>
 
-            <ResponsiveContainer width="80%" height={200}>
+            <ResponsiveContainer width="100%" height={300}>
                 <BarChart
                     data={userData.sessions}
                     margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                    barGap={8}
+                    barCategoryGap={12}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="day" tickFormatter={(day) => day.slice(8)} /> {/* Affiche uniquement le jour */}
-                    <YAxis yAxisId="kilogram" orientation="right" />
+                    <XAxis dataKey="day" tickFormatter={(day) => day.slice(8)} tickLine={false} />
+                    <YAxis yAxisId="kilogram" orientation="right" domain={['dataMin - 1', 'dataMax + 1']} axisLine={false} tickLine={false} />
                     <YAxis yAxisId="calories" orientation="left" hide />
                     <Tooltip />
-                    <Legend />
-                    <Bar yAxisId="kilogram" dataKey="kilogram" fill="#282D30" name="Poids (kg)" radius={[10, 10, 0, 0]} />
-                    <Bar yAxisId="calories" dataKey="calories" fill="#E60000" name="Calories brûlées (kCal)" radius={[10, 10, 0, 0]} />
+                    <Legend align="right" verticalAlign="top" iconType="circle" wrapperStyle={{ paddingBottom: 10 }} />
+                    <Bar yAxisId="kilogram" dataKey="kilogram" fill="#282D30" name="Poids (kg)" radius={[10, 10, 0, 0]} barSize={10} />
+                    <Bar yAxisId="calories" dataKey="calories" fill="#E60000" name="Calories brûlées (kCal)" radius={[10, 10, 0, 0]} barSize={10} />
                 </BarChart>
             </ResponsiveContainer>
         </section>

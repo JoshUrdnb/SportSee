@@ -1,4 +1,29 @@
 .profile {
-    width: 100%;
-    height: 100vh;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    padding: 20rem;
+}
+
+.profile-main {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.activity {
+    flex: 2;
+}
+
+.details {
+    display: flex;
+    gap: 20px;
+}
+
+.profile-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
