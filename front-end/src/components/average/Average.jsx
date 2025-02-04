@@ -34,8 +34,8 @@ const Average = () => {
 
     return (
         <section className='average-container'>
-            <h1>Durée moyenne des sessions</h1>
-            <ResponsiveContainer width="100%" height={250}>
+            <p>Durée moyenne des sessions</p>
+            <ResponsiveContainer width="100%" height={220}>
                 <LineChart data={formattedData}>
                     <XAxis dataKey="day" tick={{ fill: "rgba(255, 255, 255, 0.7)" }} />
                     <Tooltip />

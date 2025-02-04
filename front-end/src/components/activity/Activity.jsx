@@ -33,9 +33,9 @@ const Activity = () => {
 
     return (
         <section className='activity-container'>
-            <h2>Activité quotidienne</h2>
+            <p>Activité quotidienne</p>
 
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={280}>
                 <BarChart
                     data={userData.sessions}
                     margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
@@ -43,7 +43,7 @@ const Activity = () => {
                     barCategoryGap={12}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="day" tickFormatter={(day) => day.slice(8)} tickLine={false} />
+                    <XAxis dataKey="day" tickFormatter={(day) => day.slice(9)} tickLine={false} />
                     <YAxis yAxisId="kilogram" orientation="right" domain={['dataMin - 1', 'dataMax + 1']} axisLine={false} tickLine={false} />
                     <YAxis yAxisId="calories" orientation="left" hide />
                     <Tooltip />
