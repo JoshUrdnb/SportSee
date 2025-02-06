@@ -1,6 +1,7 @@
 import "./performance.scss";
 import { useEffect, useState } from "react";
-import { fetchUserPerformance } from "../../api/userMockService";
+import { ApiFactory } from '../../api/factory'
+// import { fetchUserPerformance } from "../../api/userMockService";
 // import { fetchUserPerformance } from "../../api/userApiService.js"
 import {
     Radar,
@@ -18,7 +19,7 @@ const Performance = () => {
     useEffect(() => {
         const getUserPerformanceData = async () => {
             try {
-                const response = await fetchUserPerformance(userId);
+                const response = await ApiFactory.fetchUserPerformance(userId);
 
                 // Transformer les données pour les adapter à Recharts
                 const formattedData = response.data.data.map((item) => ({

@@ -1,6 +1,7 @@
 import './average.scss'
 import { useEffect, useState } from "react"
-import { fetchAverageData } from '../../api/userMockService'
+import { ApiFactory } from '../../api/factory'
+// import { fetchAverageData } from '../../api/userMockService'
 // import { fetchAverageData } from "../../api/userApiService.js"
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
@@ -12,7 +13,7 @@ const Average = () => {
     useEffect(() => {
         const getUserAverageData = async () => {
             try {
-                const response = await fetchAverageData(userId)
+                const response = await ApiFactory.fetchAverageData(userId)
                 setUserData(response.data)
             } catch (err) {
                 console.error(err)
@@ -39,7 +40,7 @@ const Average = () => {
                 <LineChart data={formattedData}>
                     <XAxis dataKey="day" tick={{ fill: "rgba(255, 255, 255, 0.7)" }} />
                     <Tooltip />
-                    <Line type="monotone" dataKey="sessionLength" stroke="#FFF" strokeWidth={2} dot={{ r: 4 }} />
+                    <Line type="basis" dataKey="sessionLength" stroke="#FFF" strokeWidth={2} dot={{ r: 4 }} />
                 </LineChart>
             </ResponsiveContainer>
         </section>

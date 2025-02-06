@@ -1,6 +1,8 @@
 import "./objective.scss"
 import { useEffect, useState } from "react"
-import { fetchUserData } from "../../api/userMockService.js"
+import { ApiFactory } from '../../api/factory'
+// import { fetchUserData } from "../../api/userMockService.js"
+// import { fetchUserData } from "../../api/userApiService.js"
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts"
 
 const Objective = () => {
@@ -11,7 +13,7 @@ const Objective = () => {
     useEffect(() => {
         const getUserData = async () => {
             try {
-                const response = await fetchUserData(userId)
+                const response = await ApiFactory.fetchUserData(userId)
                 setUserData(response.data)
             } catch (err) {
                 console.error(err)
