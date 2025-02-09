@@ -1,8 +1,6 @@
 import "./objective.scss"
 import { useEffect, useState } from "react"
 import { ApiFactory } from '../../api/factory'
-// import { fetchUserData } from "../../api/userMockService.js"
-// import { fetchUserData } from "../../api/userApiService.js"
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts"
 
 const Objective = () => {
@@ -22,7 +20,7 @@ const Objective = () => {
         };
 
         getUserData()
-    }, []);
+    }, [])
 
     if (error) {
         return <div>{error}</div>

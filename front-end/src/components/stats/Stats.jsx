@@ -2,9 +2,6 @@ import './stats.scss'
 import { useEffect, useState } from "react"
 import { ApiFactory } from '../../api/factory'
 
-// import { fetchUserData } from "../../api/userMockService.js"
-// import { fetchUserData } from "../../api/userApiService.js"
-
 const Stats = () => {
     const [userData, setUserData] = useState(null)
     const [error, setError] = useState(null)

@@ -1,44 +1,42 @@
-import "./performance.scss";
-import { useEffect, useState } from "react";
+import "./performance.scss"
+import { useEffect, useState } from "react"
 import { ApiFactory } from '../../api/factory'
-// import { fetchUserPerformance } from "../../api/userMockService";
-// import { fetchUserPerformance } from "../../api/userApiService.js"
 import {
     Radar,
     RadarChart,
     PolarGrid,
     PolarAngleAxis,
     ResponsiveContainer,
-} from "recharts";
+} from "recharts"
 
 const Performance = () => {
-    const [userData, setUserData] = useState(null);
-    const [error, setError] = useState(null);
-    const userId = 12;
+    const [userData, setUserData] = useState(null)
+    const [error, setError] = useState(null)
+    const userId = 12
 
     useEffect(() => {
         const getUserPerformanceData = async () => {
             try {
-                const response = await ApiFactory.fetchUserPerformance(userId);
+                const response = await ApiFactory.fetchUserPerformance(userId)
 
                 // Transformer les données pour les adapter à Recharts
                 const formattedData = response.data.data.map((item) => ({
                     value: item.value,
                     kind: response.data.kind[item.kind], // Convertir l'ID en texte
-                }));
+                }))
 
-                setUserData(formattedData);
+                setUserData(formattedData)
             } catch (err) {
-                console.error(err);
-                setError("Erreur lors de la récupération des performances utilisateur.");
+                console.error(err)
+                setError("Erreur lors de la récupération des performances utilisateur.")
             }
         };
 
-        getUserPerformanceData();
-    }, []);
+        getUserPerformanceData()
+    }, [])
 
-    if (error) return <div>{error}</div>;
-    if (!userData) return <div>Chargement...</div>;
+    if (error) return <div>{error}</div>
+    if (!userData) return <div>Chargement...</div>
 
     return (
         <section className="performance-container">
@@ -59,7 +57,7 @@ const Performance = () => {
                 </RadarChart>
             </ResponsiveContainer>
         </section>
-    );
-};
+    )
+}
 
-export default Performance;
+export default Performance

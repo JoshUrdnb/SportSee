@@ -2,9 +2,6 @@ import "./user.scss"
 import { useEffect, useState } from "react"
 import { ApiFactory } from '../../api/factory'
 
-// import { fetchUserData } from "../../api/userMockService.js"
-// import { fetchUserData } from "../../api/userApiService.js"
-
 const User = () => {
     const [userData, setUserData] = useState(null)
     const [error, setError] = useState(null)
@@ -22,7 +19,7 @@ const User = () => {
         };
 
         getUserData()
-    }, []);
+    }, [])
 
     if (error) {
         return <div>{error}</div>

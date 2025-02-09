@@ -1,8 +1,6 @@
 import './activity.scss'
 import { useEffect, useState } from "react"
 import { ApiFactory } from '../../api/factory'
-// import { fetchUserActivity } from '../../api/userMockService'
-// import { fetchUserActivity } from "../../api/userApiService.js"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import PropTypes from 'prop-types'
 
@@ -15,10 +13,10 @@ const CustomTooltip = ({ active, payload }) => {
             </div>
         );
     }
-    return null;
+    return null
 };
 
-CustomTooltip.propTypes = {active: PropTypes.bool, payload: PropTypes.array};
+CustomTooltip.propTypes = {active: PropTypes.bool, payload: PropTypes.array}
 
 const Activity = () => {
     const [userData, setUserData] = useState(null)

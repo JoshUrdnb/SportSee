@@ -1,8 +1,6 @@
 import './average.scss'
 import { useEffect, useState } from "react"
 import { ApiFactory } from '../../api/factory'
-// import { fetchAverageData } from '../../api/userMockService'
-// import { fetchAverageData } from "../../api/userApiService.js"
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
 const Average = () => {
