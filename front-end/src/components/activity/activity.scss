@@ -6,12 +6,35 @@
     padding: 10px;
 }
 
+.activity-title {
+    color: #20253A;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 160% */
+    position: absolute;
+    margin-left: 1rem;
+}
+
 .custom-tooltip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     line-height: 20px;
-    background-color: red;
+    background: #E60000;
     color: white;
     padding: 1rem;
-    border-radius: 5px;
     width: 39px;
     height: 63px;
+}
+
+.recharts-legend-item-text {
+    color: #74798c !important;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
 }
