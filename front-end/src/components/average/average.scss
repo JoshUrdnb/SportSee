@@ -6,3 +6,25 @@
     width: 258px;
     height: 263px;
 }
+
+.average-title {
+    opacity: 0.504;
+}
+
+.custom-tooltip-average {
+    width: 39px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.custom-tooltip-average p {
+    color: #000;
+    text-align: center;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 300% */
+}
