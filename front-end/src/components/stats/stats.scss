@@ -1,5 +1,9 @@
 .stats-container {
-    margin-top: 12.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 49px;
 }
 
 .stat {
@@ -7,7 +11,6 @@
     justify-content: center;
     align-items: center;
     background-color: #FBFBFB;
-    margin-bottom: 2rem;
     width: 258px;
     height: 124px;
     border-radius: 5px;

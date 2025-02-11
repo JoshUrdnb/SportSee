@@ -1,26 +1,37 @@
 .profile {
-    display: flex;
+    position: absolute;
+    width: 1126px;
+    height: 779px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
     gap: 20px;
-    padding: 10rem;
+    margin-left: 15rem;
+    margin-top: 8rem;
+
+    grid-template-areas:
+        "user user"
+        "activity sidebar"
+        "details sidebar";
 }
 
-.profile-main {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.user {
+    grid-area: user;
 }
 
 .activity {
-    flex: 2;
+    grid-area: activity;
 }
 
 .details {
-    display: flex;
-    gap: 20px;
+    grid-area: details;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
-.profile-sidebar {
-    flex: 1;
+.sidebar-user {
+    grid-area: sidebar;
     display: flex;
     flex-direction: column;
     gap: 20px;

@@ -31,7 +31,6 @@ const Stats = () => {
 
     return (
         <section className='stats-container'>
-            <div className='stats-wrap'>
                 <div className='stat'>
                     <div className="stat-icon-1">
                         <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +68,6 @@ const Stats = () => {
                     </div>
                     <p><span className='stat-bold'>{userData.keyData.lipidCount} g</span> <br />Lipides</p>
                 </div>
-            </div>
         </section>
     )
 }
