@@ -1,7 +1,7 @@
 import "./objective.scss"
 import { useEffect, useState } from "react"
 import { ApiFactory } from '../../api/factory'
-import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts"
+import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis } from "recharts"
 
 const Objective = () => {
     const [userData, setUserData] = useState(null)
@@ -35,24 +35,28 @@ const Objective = () => {
 
     return (
         <section className="objective-container">
-            <h3>Score</h3>
+            <p>Score</p>
             <div className="objective-chart">
                 <ResponsiveContainer width="100%" height={200}>
-                    <RadialBarChart 
+                    <RadialBarChart
                         cx="50%"
-                        cy="50%" 
-                        innerRadius="80%" 
-                        outerRadius="100%" 
-                        barSize={10} 
+                        cy="50%"
+                        innerRadius="80%"
+                        outerRadius="100%"
+                        barSize={10}
                         data={data}
-                        startAngle={90}
-                        endAngle={-270}
+                        startAngle={90} 
+                        endAngle={450}
                     >
-                        <RadialBar minAngle={15} background dataKey="value" />
+                        <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+                        <RadialBar dataKey="value" background={{ fill: "#EAEAEA" }} />
                     </RadialBarChart>
                 </ResponsiveContainer>
+                <div className="objective-text">
+                    <span className="percentage">{percentage}%</span>
+                    <span className="goal-text">de votre <br /> objectif</span>
+                </div>
             </div>
-            <p>{percentage}% de votre objectif</p>
         </section>
     )
 }
