@@ -1,12 +1,14 @@
 .header {
-    margin: 0 auto;
-    width: 1440px;
+    width: 100%; /* Au lieu de 1440px */
+    max-width: 1440px; /* Garde une limite max */
     height: 91px;
     background: #242424;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 2;
 }
 
@@ -30,7 +32,7 @@
 
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
     width: 100%;
 }

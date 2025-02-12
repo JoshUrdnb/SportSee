@@ -39,3 +39,15 @@
   transform: translateX(-50%) rotate(-90deg);
   white-space: nowrap;
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1400px) {
+    
+  .sidebar {
+    height: 780px;
+  }
+  
+  .icon-wraper {
+    margin-top: 15rem;
+  }
+
+}

@@ -36,3 +36,42 @@
     flex-direction: column;
     gap: 20px;
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1400px) {
+    
+    .profile {
+        position: absolute;
+        width: 855px;
+        height: 779px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr 1fr 1fr;
+        gap: 20px;
+        margin-left: 9rem;
+        margin-top: 4rem;
+    
+        grid-template-areas:
+            "user "
+            "sidebar"
+            "activity"
+            "details";
+    }
+    
+    .user {
+        grid-area: user;
+        width: 100%;
+    }
+    
+    .activity {
+        grid-area: activity;
+    }
+    
+    .details {
+        grid-area: details;
+    }
+    
+    .sidebar-user {
+        grid-area: sidebar;
+    }
+
+}
