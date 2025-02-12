@@ -1,6 +1,6 @@
 import "./performance.scss"
 import { useEffect, useState } from "react"
-import { ApiFactory } from '../../api/factory'
+import { ApiFactory } from "../../api/factory"
 import {
     Radar,
     RadarChart,
@@ -8,6 +8,16 @@ import {
     PolarAngleAxis,
     ResponsiveContainer,
 } from "recharts"
+
+// Mapping des types de performance en français avec un ordre précis
+const kindMapping = {
+    1: "Intensité",
+    2: "Vitesse",
+    3: "Force",
+    4: "Endurance",
+    5: "Énergie",
+    6: "Cardio"
+}
 
 const Performance = () => {
     const [userData, setUserData] = useState(null)
@@ -19,18 +29,20 @@ const Performance = () => {
             try {
                 const response = await ApiFactory.fetchUserPerformance(userId)
 
-                // Transformer les données pour les adapter à Recharts
-                const formattedData = response.data.data.map((item) => ({
-                    value: item.value,
-                    kind: response.data.kind[item.kind], // Convertir l'ID en texte
-                }))
+                // Transformer et réordonner les données selon le mapping
+                const formattedData = response.data.data
+                    .map((item) => ({
+                        value: item.value,
+                        kind: kindMapping[item.kind] // Convertir l'ID en texte
+                    }))
+                    .sort((a, b) => Object.values(kindMapping).indexOf(a.kind) - Object.values(kindMapping).indexOf(b.kind))
 
                 setUserData(formattedData)
             } catch (err) {
                 console.error(err)
                 setError("Erreur lors de la récupération des performances utilisateur.")
             }
-        };
+        }
 
         getUserPerformanceData()
     }, [])
