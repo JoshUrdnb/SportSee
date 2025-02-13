@@ -7,12 +7,12 @@ export default function Header() {
     return (
         <header className='header'>
             <div className="company">
-                <Link to="/"><img src={Logo} alt="Logo de SportSee" className="header-logo" /></Link>
+                <Link to="/home"><img src={Logo} alt="Logo de SportSee" className="header-logo" /></Link>
                 <h1>SportSee</h1>
             </div>
             <nav className='navbar'>
                 <NavLink
-                    to="/"
+                    to="/home"
                     className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
                 >
                     Accueil

@@ -1,33 +1,9 @@
 import './stats.scss'
-import { useEffect, useState } from "react"
-import { ApiFactory } from '../../api/factory'
+import PropTypes from 'prop-types'
 
-const Stats = () => {
-    const [userData, setUserData] = useState(null)
-    const [error, setError] = useState(null)
-    const userId = 12
+const Stats = ({ data }) => {
 
-    useEffect(() => {
-        const getUserData = async () => {
-            try {
-                const response = await ApiFactory.fetchUserData(userId)
-                setUserData(response.data)
-            } catch (err) {
-                console.error(err)
-                setError('Erreur lors de la récupération des données utilisateur.')
-            }
-        }
-
-        getUserData()
-    }, [])
-
-    if (error) {
-        return <div>{error}</div>
-    }
-
-    if (!userData) {
-        return <div>Chargement...</div>
-    }
+    if (!data) return <div className="loading-message">Le chargement des données de Stats a échoué.</div>
 
     return (
         <section className='stats-container'>
@@ -37,7 +13,7 @@ const Stats = () => {
                             <path d="M10.905 7.86625C10.905 7.86625 11.8375 2.38125 8.03249 0C7.91784 1.90607 6.99682 3.6731 5.49999 4.85875C3.87499 6.2875 0.81874 9.5 0.85124 12.925C0.827424 15.9116 2.49913 18.6534 5.16499 20C5.25931 18.6645 5.88737 17.4233 6.90749 16.5562C7.77187 15.8915 8.33304 14.9074 8.46499 13.825C10.7407 15.0348 12.2125 17.3521 12.34 19.9263V19.9425C14.8552 18.7904 16.5109 16.3241 16.625 13.56C16.895 10.3425 15.1325 5.9675 13.5687 4.5375C12.9784 5.85556 12.0615 7.00126 10.905 7.86625Z" fill="#FF0000" />
                         </svg>
                     </div>
-                    <p><span className='stat-bold'>{userData.keyData.calorieCount} kCal</span> <br />Calories</p>
+                    <p><span className='stat-bold'>{data.calorieCount} kCal</span> <br />Calories</p>
                 </div>
                 <div className='stat'>
                     <div className="stat-icon-2">
@@ -46,7 +22,7 @@ const Stats = () => {
                         </svg>
 
                     </div>
-                    <p><span className='stat-bold'>{userData.keyData.proteinCount} g</span> <br />Proteines</p>
+                    <p><span className='stat-bold'>{data.proteinCount} g</span> <br />Proteines</p>
                 </div>
                 <div className='stat'>
                     <div className="stat-icon-3">
@@ -56,7 +32,7 @@ const Stats = () => {
                             <path d="M12.005 3.37375C12.6875 2.49875 13.205 1.2625 13.0162 0C11.9025 0.07625 10.6 0.785 9.83873 1.70875C9.14873 2.5475 8.57873 3.79125 8.79998 5C10.0162 5.0375 11.2737 4.31125 12.005 3.37375Z" fill="#FDCC0C" />
                         </svg>
                     </div>
-                    <p><span className='stat-bold'>{userData.keyData.carbohydrateCount} g</span> <br />Glucides</p>
+                    <p><span className='stat-bold'>{data.carbohydrateCount} g</span> <br />Glucides</p>
                 </div>
                 <div className='stat'>
                     <div className="stat-icon-4">
@@ -66,10 +42,19 @@ const Stats = () => {
                             <path fillRule="evenodd" clipRule="evenodd" d="M11.25 0H8.75C4.625 0 1.25 3.375 1.25 7.5H18.75C18.75 3.375 15.375 0 11.25 0ZM7.5 5C6.75 5 6.25 4.5 6.25 3.75C6.25 3 6.75 2.5 7.5 2.5C8.25 2.5 8.75 3 8.75 3.75C8.75 4.5 8.25 5 7.5 5ZM12.5 5C12.5 5.75 13 6.25 13.75 6.25C14.5 6.25 15 5.75 15 5C15 4.25 14.5 3.75 13.75 3.75C13 3.75 12.5 4.25 12.5 5Z" fill="#FD5181" />
                         </svg>
                     </div>
-                    <p><span className='stat-bold'>{userData.keyData.lipidCount} g</span> <br />Lipides</p>
+                    <p><span className='stat-bold'>{data.lipidCount} g</span> <br />Lipides</p>
                 </div>
         </section>
     )
+}
+
+Stats.propTypes = {
+    data: PropTypes.shape({
+        calorieCount: PropTypes.number.isRequired,
+        proteinCount: PropTypes.number.isRequired,
+        carbohydrateCount: PropTypes.number.isRequired,
+        lipidCount: PropTypes.number.isRequired,
+    }).isRequired,
 }
 
 export default Stats

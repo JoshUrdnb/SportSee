@@ -1,6 +1,6 @@
 import './average.scss'
-import { useEffect, useState } from "react"
-import { ApiFactory } from '../../api/factory'
+// import { useEffect, useState } from "react"
+// import { ApiFactory } from '../../api/factory'
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import PropTypes from 'prop-types'
 
@@ -15,32 +15,34 @@ const CustomTooltip = ({ active, payload }) => {
     return null
 }
 
-CustomTooltip.propTypes = { active: PropTypes.bool, payload: PropTypes.array }
+CustomTooltip.propTypes = {
+    active: PropTypes.bool,
+    payload: PropTypes.array
+}
 
-const Average = () => {
-    const [userData, setUserData] = useState(null)
-    const [error, setError] = useState(null)
-    const userId = 12
+const Average = ({ averageData }) => {
+    // const [userData, setUserData] = useState(null)
+    // const [error, setError] = useState(null)
 
-    useEffect(() => {
-        const getUserAverageData = async () => {
-            try {
-                const response = await ApiFactory.fetchAverageData(userId)
-                setUserData(response.data)
-            } catch (err) {
-                console.error(err)
-                setError('Erreur lors de la récupération des données utilisateur.')
-            }
-        }
+    // useEffect(() => {
+    //     const getUserAverageData = async () => {
+    //         try {
+    //             const response = await ApiFactory.fetchAverageData(userId)
+    //             setUserData(response.data)
+    //         } catch (err) {
+    //             console.error(err)
+    //             setError('Erreur lors de la récupération des données utilisateur.')
+    //         }
+    //     }
 
-        getUserAverageData()
-    }, [])
+    //     getUserAverageData()
+    // }, [userId])
 
-    if (error) return <div>{error}</div>
-    if (!userData) return <div>Chargement...</div>
+    // if (error) return <div>{error}</div>
+    // if (!userData || !userData.sessions || userData.sessions.length === 0) return <div>Chargement...</div>
 
     const daysMapping = ["L", "M", "M", "J", "V", "S", "D"]
-    const formattedData = userData.sessions.map((session, index) => ({
+    const formattedData = averageData.sessions.map((session, index) => ({
         day: daysMapping[index],
         sessionLength: session.sessionLength
     }))
@@ -50,13 +52,23 @@ const Average = () => {
             <p className='average-title'>Durée moyenne des <br /> sessions</p>
             <ResponsiveContainer width="100%" height={200}>
                 <LineChart data={formattedData}>
-                    <XAxis dataKey="day" tick={{ fill: "rgba(255, 255, 255, 0.7)" }}   axisLine={false} tickLine={false} />
+                    <XAxis dataKey="day" tick={{ fill: "rgba(255, 255, 255, 0.7)" }} axisLine={false} tickLine={false} />
                     <Tooltip content={<CustomTooltip />} />
                     <Line type="monotone" dataKey="sessionLength" stroke="#FFF" strokeWidth={2} dot={false} activeDot={{ r: 6, fill: "#FFF" }} />
                 </LineChart>
             </ResponsiveContainer>
         </section>
     )
+}
+
+Average.propTypes = {
+    averageData: PropTypes.shape({
+        sessions: PropTypes.arrayOf(
+            PropTypes.shape({
+                sessionLength: PropTypes.number.isRequired
+            })
+        ).isRequired
+    }).isRequired
 }
 
 export default Average

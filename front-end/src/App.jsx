@@ -11,8 +11,8 @@ const AppRoutes = () => (
     <BrowserRouter>
         <Routes>
             <Route element={<Layout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/profile/:userId" element={<Profile />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/community" element={<Community />} />
             </Route>

@@ -1,36 +1,10 @@
 import "./objective.scss"
-import { useEffect, useState } from "react"
-import { ApiFactory } from '../../api/factory'
+import PropTypes from "prop-types"
 import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis } from "recharts"
 
-const Objective = () => {
-    const [userData, setUserData] = useState(null)
-    const [error, setError] = useState(null)
-    const userId = 12
+const Objective = ({ score }) => {
 
-    useEffect(() => {
-        const getUserData = async () => {
-            try {
-                const response = await ApiFactory.fetchUserData(userId)
-                setUserData(response.data)
-            } catch (err) {
-                console.error(err)
-                setError("Erreur lors de la récupération des données utilisateur.")
-            }
-        };
-
-        getUserData()
-    }, [])
-
-    if (error) {
-        return <div>{error}</div>
-    }
-
-    if (!userData) {
-        return <div>Chargement...</div>
-    }
-
-    const percentage = userData.todayScore * 100
+    const percentage = (score.todayScore || score.score || 0) * 100
     const data = [{ name: "Score", value: percentage, fill: "#FF0000" }]
 
     return (
@@ -60,5 +34,13 @@ const Objective = () => {
         </section>
     )
 }
+
+Objective.propTypes = {
+    score: PropTypes.shape({
+        todayScore: PropTypes.number,
+        score: PropTypes.number // Au cas où `score` soit utilisé à la place de `todayScore`
+    }).isRequired
+}
+
 
 export default Objective
