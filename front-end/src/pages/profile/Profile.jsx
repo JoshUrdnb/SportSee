@@ -85,7 +85,7 @@ const Profile = () => {
                 <Objective score={{ todayScore: userData.todayScore || userData.score }} />
             </div>
             <div className="sidebar-user">
-                <Stats userData={userData} />
+                <Stats data={userData.keyData} />
             </div>
         </div>
     )

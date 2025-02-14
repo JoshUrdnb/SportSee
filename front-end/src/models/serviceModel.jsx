@@ -1,8 +1,8 @@
 export function getModelUser(data) {
     return {
         id: data.id,
-        firstname: data.userInfos.firstname,
-        lastname: data.userInfos.lastname,
+        firstname: data.userInfos.firstName,
+        lastname: data.userInfos.lastName,
         age: data.userInfos.age,
         todayScore: data.todayScore,
         keyData: data.keyData,

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import "./user.scss"
 
-const User = ({ firstname = "Utilisateur introuvable" }) => {
+const User = ({ firstname /*= "Utilisateur introuvable"*/ }) => {
 
     return (
         <section className="user-container">

@@ -2,8 +2,8 @@ export const userInfoData = [
     {
         id: 12,
         userInfos: {
-            firstname: 'Karl',
-            lastname: 'Dovineau',
+            firstName: 'Karl',
+            lastName: 'Dovineau',
             age: 31
         },
         todayScore: 0.12,
@@ -17,8 +17,8 @@ export const userInfoData = [
     {
         id: 18,
         userInfos: {
-            firstname: 'Cecilia',
-            lastname: 'Ratorez',
+            firstName: 'Cecilia',
+            lastName: 'Ratorez',
             age: 34
         },
         todayScore: 0.3,
