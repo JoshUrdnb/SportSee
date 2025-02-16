@@ -1,6 +1,8 @@
 import "./profile.scss"
+
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from "react"
+
 import { ApiFactory } from "../../api/factory"
 
 import User from '../../components/user/User'
@@ -81,8 +83,7 @@ const Profile = () => {
             <div className="details">
                 <Average averageData={averageData} />
                 <Performance performanceData={performanceData} />
-                {/* <Objective objectiveData={userData.todayScore || userData.score} /> */}
-                <Objective score={{ todayScore: userData.todayScore || userData.score }} />
+                <Objective score={{ todayScore: userData.todayScore ?? userData.score }} />
             </div>
             <div className="sidebar-user">
                 <Stats data={userData.keyData} />

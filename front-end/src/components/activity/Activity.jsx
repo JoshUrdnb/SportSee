@@ -17,11 +17,6 @@ const CustomTooltip = ({ active, payload }) => {
 CustomTooltip.propTypes = { active: PropTypes.bool, payload: PropTypes.array }
 
 const Activity = ({ activityData }) => {
-    
-    // Vérifie si les données sont bien chargées et contiennent des sessions
-    // if (!activityData || !activityData.sessions || activityData.sessions.length === 0) {
-    //     return <div>Chargement...</div>
-    // }
 
     return (
         <section className='activity-container'>

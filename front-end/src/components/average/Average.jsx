@@ -1,6 +1,4 @@
 import './average.scss'
-// import { useEffect, useState } from "react"
-// import { ApiFactory } from '../../api/factory'
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import PropTypes from 'prop-types'
 
@@ -21,25 +19,6 @@ CustomTooltip.propTypes = {
 }
 
 const Average = ({ averageData }) => {
-    // const [userData, setUserData] = useState(null)
-    // const [error, setError] = useState(null)
-
-    // useEffect(() => {
-    //     const getUserAverageData = async () => {
-    //         try {
-    //             const response = await ApiFactory.fetchAverageData(userId)
-    //             setUserData(response.data)
-    //         } catch (err) {
-    //             console.error(err)
-    //             setError('Erreur lors de la récupération des données utilisateur.')
-    //         }
-    //     }
-
-    //     getUserAverageData()
-    // }, [userId])
-
-    // if (error) return <div>{error}</div>
-    // if (!userData || !userData.sessions || userData.sessions.length === 0) return <div>Chargement...</div>
 
     const daysMapping = ["L", "M", "M", "J", "V", "S", "D"]
     const formattedData = averageData.sessions.map((session, index) => ({

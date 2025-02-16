@@ -3,9 +3,6 @@ import PropTypes from "prop-types"
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts"
 
 const Performance = ({ performanceData }) => {
-    // if (!performanceData || performanceData.length === 0) {
-    //     return <div>Chargement...</div>;
-    // }
 
     return (
         <section className="performance-container">

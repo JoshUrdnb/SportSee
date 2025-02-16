@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 
 const Stats = ({ data }) => {
 
-    if (!data) return <div className="loading-message">Le chargement des données de Stats a échoué.</div>
-
     return (
         <section className='stats-container'>
                 <div className='stat'>
