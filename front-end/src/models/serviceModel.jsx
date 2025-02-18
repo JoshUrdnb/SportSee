@@ -4,7 +4,6 @@ export function getModelUser(data) {
         firstname: data.userInfos.firstName,
         lastname: data.userInfos.lastName,
         age: data.userInfos.age,
-        // todayScore: data.todayScore,
         todayScore: data.todayScore ?? data.score, // On prend "todayScore" s'il existe, sinon "score"
         keyData: data.keyData,
     }

@@ -19,7 +19,7 @@ const Objective = ({ score }) => {
                         outerRadius="100%"
                         barSize={10}
                         data={data}
-                        startAngle={90} 
+                        startAngle={90}
                         endAngle={450}
                     >
                         <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
