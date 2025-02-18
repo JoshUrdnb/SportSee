@@ -62,7 +62,7 @@ const Profile = () => {
 
             } catch (err) {
                 console.error(err)
-                setError("Erreur lors de la récupération des données.")
+                setError(err.message)
             }
         }
 
